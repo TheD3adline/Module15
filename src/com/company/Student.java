@@ -1,6 +1,6 @@
 package com.company;
 
-public class Student {
+public class Student implements Comparable {
 
     private String firstName;
     private String lastName;
@@ -10,6 +10,27 @@ public class Student {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+    }
+
+    //Method to sort the contents of an array of this class
+
+    //return 0: when handed over Object o must be sorted to the same spot as the Object that requests the method
+    //return >0: when the requesting Object must be sorted BEHIND the handed over Object o
+    //return <0: when the requesting Object must be sorted BEFORE the handed over Object o
+
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof Student) {
+            Student other = (Student) o;
+            if(this.age < other.age) {
+                return -1;
+            } else if(this.age > other.age) {
+                return 1;
+            } else
+                return 0;
+        }
+        //if Object o is not of the class Student
+        return 0;
     }
 
     //Method to compare the contents of 2 objects of the same class
@@ -43,6 +64,8 @@ public class Student {
     public String toString() {
         return firstName + " " + lastName + ": " + age;
     }
+
+    //Getters/Setters
 
     public String getFirstName() {
         return firstName;

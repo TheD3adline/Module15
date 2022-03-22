@@ -2,4 +2,4 @@
 
 Practice to module 15 of the Java online course from programmieren-starten.de
 
-Advanced OOP about toString and equals methods
+Advanced OOP about toString and equals methods, and sorting an array with the Comparable interface
