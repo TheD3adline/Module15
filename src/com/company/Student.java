@@ -21,7 +21,7 @@ public class Student implements Comparable {
     @Override //Overrides the standard compareTo method from Comparable.java interface and returns an integer to the sorting algorithm
     public int compareTo(Object o) {
         if(o instanceof Student) { //Checks if Object o even is of the same class as the requesting class
-            Student other = (Student) o; //Instantiates a new instance of the class, other, and writes the contents of o into it
+            Student other = (Student) o; //Instantiates a new instance of the class, other, and "casts" the contents of o attributes into it
             if(this.age < other.age) { //Checks if age attribute of the requesting object is smaller than other (or o)
                 return -1; //Returns -1 integer into the sorting algorithm if age of requesting object is smaller than age of other (or o), so the object with the lower age attribute is sorted BEFORE
             } else if(this.age > other.age) { //Checks if age attribute of the requesting object is larger than other (or o)
@@ -45,7 +45,7 @@ public class Student implements Comparable {
             return false;
         }
 
-        Student other = (Student) obj; //Instantiates a new instance of the class, other, and writes the contents of obj into it
+        Student other = (Student) obj; //Instantiates a new instance of the class, other, and "casts" the contents of obj attributes into it
 
         if(age != other.age) { //Checks if the age attribute differs, if it differs returns false
             return false;
