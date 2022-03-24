@@ -12,7 +12,7 @@ public class Student implements Comparable {
         this.age = age;
     }
 
-    //Method to sort the contents of an array of this class
+    //Method to sort the contents of an array of this class, ASCENDING
 
     //return 0: when handed over Object o must be sorted to the same spot as the Object that requests the method
     //return >0: when the requesting Object must be sorted BEHIND the handed over Object o
