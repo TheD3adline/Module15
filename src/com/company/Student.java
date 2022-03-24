@@ -18,15 +18,15 @@ public class Student implements Comparable {
     //return >0: when the requesting Object must be sorted BEHIND the handed over Object o
     //return <0: when the requesting Object must be sorted BEFORE the handed over Object o
 
-    @Override
+    @Override //Overrides the standard compareTo method from Comparable.java interface and returns an integer to the sorting algorithm
     public int compareTo(Object o) {
-        if(o instanceof Student) {
-            Student other = (Student) o;
-            if(this.age < other.age) {
-                return -1;
-            } else if(this.age > other.age) {
-                return 1;
-            } else
+        if(o instanceof Student) { //Checks if Object o even is of the same class as the requesting class
+            Student other = (Student) o; //Instantiates a new instance of the class, other, and writes the contents of o into it
+            if(this.age < other.age) { //Checks if age attribute of the requesting object is smaller than other (or o)
+                return -1; //Returns -1 integer into the sorting algorithm if age of requesting object is smaller than age of other (or o), so the object with the lower age attribute is sorted BEFORE
+            } else if(this.age > other.age) { //Checks if age attribute of the requesting object is larger than other (or o)
+                return 1; //Returns 1 integer into the sorting algorithm if age of requesting object is larger than age of other (or o), so the object with the higher age attribute is sorted BEHIND
+            } else //If age attribute of both objects is the same, returns 0 integer into the sorting algorithm, so the positions of both objects remain unchanged
                 return 0;
         }
         //if Object o is not of the class Student
@@ -35,34 +35,34 @@ public class Student implements Comparable {
 
     //Method to compare the contents of 2 objects of the same class
 
-    @Override
+    @Override //Overrides standard equals method from Object.java class, returns boolean
     public boolean equals(Object obj) {
-        if(this == obj) {
+        if(this == obj) { //Checks if obj is the same instance as the object that is requesting the method, if so the contents can only be the same and there is no need for further comparison, then returns true
             return true;
-        } else if (obj == null) {
+        } else if (obj == null) { //Checks if obj is null, of so returns false
             return false;
-        } else if (!(obj instanceof Student)) {
-            return false;
-        }
-
-        Student other = (Student) obj;
-
-        if(age != other.age) {
-            return false;
-        } else if(!(firstName.equals(other.firstName))) {
-            return false;
-        } else if(!(lastName.equals(other.lastName))) {
+        } else if (!(obj instanceof Student)) { //Checks if obj even is an instance of the same class as the requesting obj, if not returns false
             return false;
         }
 
-        return true;
+        Student other = (Student) obj; //Instantiates a new instance of the class, other, and writes the contents of obj into it
+
+        if(age != other.age) { //Checks if the age attribute differs, if it differs returns false
+            return false;
+        } else if(!(firstName.equals(other.firstName))) { //Checks if the firstName attribute (String) is the same, if it differs returns false
+            return false;
+        } else if(!(lastName.equals(other.lastName))) { //Checks if the lastName attribute (String) is the same, if it differs returns false
+            return false;
+        }
+
+        return true; //If all the checks have passed until here, then every defined attribute of the two objects carries the same values while not being the same instance, returns true
     }
 
     //Method to print the content of this class into a String
 
-    @Override
+    @Override //Overrides standard toString method from Object.java class
     public String toString() {
-        return firstName + " " + lastName + ": " + age;
+        return firstName + " " + lastName + ": " + age; //Returns a String value with these defined contents
     }
 
     //Getters/Setters
